@@ -1,155 +1,345 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Services Bots & Scripts</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1e1e2f, #2b2b4f);
-            color: white;
-            margin: 0;
-            padding: 0;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BotX - Votre bot Discord sur mesure</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
 
-        header {
-            background: #00d4ff;
-            color: #1e1e2f;
-            padding: 20px 0;
-            text-align: center;
-            font-size: 28px;
-            font-weight: bold;
-        }
+  * { box-sizing: border-box; }
 
-        .container {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: url('https://cdn.discordapp.com/attachments/1462401281091047495/1462408986023301323/content.png?ex=696e1600&is=696cc480&hm=43ff501cb32caf97d1f5da9bd436f469b441565001fc288a74a30423a660348d&') no-repeat center center fixed;
+    background-size: cover;
+    color: #a0a9e9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 
-        h2 {
-            color: #00ff99;
-            margin-top: 40px;
-        }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(16, 20, 38, 0.85);
+    z-index: -1;
+  }
 
-        .service {
-            background: #1c1c2e;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.5);
-        }
+  header, footer {
+    background-color: #1b1e34dd;
+    color: white;
+    text-align: center;
+    padding: 15px 20px;
+    font-weight: 600;
+    font-size: 1.4rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
 
-        .service ul {
-            list-style: none;
-            padding: 0;
-        }
+  main {
+    flex: 1 0 auto;
+    max-width: 960px;
+    margin: 30px auto 60px;
+    width: 90%;
+  }
 
-        .service li {
-            margin: 10px 0;
-            padding: 10px;
-            background: #2b2b4f;
-            border-radius: 8px;
-        }
+  .btn-discord {
+    background-color: #5865F2;
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+  }
 
-        .price {
-            color: #00ff99;
-            font-weight: bold;
-        }
+  .btn-discord:hover { background-color: #4752c4; }
 
-        .btn {
-            display: inline-block;
-            margin: 10px 5px 0 0;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: 0.3s;
-        }
+  .material-icons {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 26px;
+    user-select: none;
+    color: #8c9eff;
+  }
 
-        .pay {
-            background: #00c853;
-        }
+  h2 {
+    color: #8c9eff;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+    font-size: 1.8rem;
+  }
 
-        .pay:hover {
-            background: #00a844;
-        }
+  .services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 24px;
+  }
 
-        .discord {
-            background: #5865F2;
-        }
+  .service-card {
+    background: #292d44cc;
+    border-radius: 12px;
+    padding: 22px 20px 30px;
+    color: #c3c8ff;
+    box-shadow: 0 8px 12px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
 
-        .discord:hover {
-            background: #4752c4;
-        }
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 22px rgba(0,0,0,0.7);
+  }
 
-        footer {
-            text-align: center;
-            font-size: 12px;
-            padding: 20px 0;
-            opacity: 0.7;
-        }
-    </style>
+  .service-icon {
+    font-size: 3.2rem;
+    margin-bottom: 14px;
+    color: #5f6ce2;
+  }
+
+  .service-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: #a0a9e9;
+  }
+
+  .service-desc {
+    font-size: 0.9rem;
+    line-height: 1.3;
+    flex-grow: 1;
+    color: #c3c8ffcc;
+  }
+
+  .price {
+    margin: 20px 0 15px;
+    background-color: #6c7ae0;
+    border-radius: 25px;
+    padding: 8px 24px;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 10px #6c7ae0aa;
+    user-select: none;
+  }
+
+  .btn-buy {
+    display: block;
+    margin: 0 auto;
+    background-color: #ffb742;
+    color: #1b1e34;
+    border: none;
+    font-weight: 600;
+    border-radius: 24px;
+    padding: 10px 28px;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 0 0 15px #ffb742aa;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-buy:hover { background-color: #f6a828; }
+
+  footer { font-weight: 600; font-size: 1.1rem; flex-shrink: 0; gap: 15px; }
+
+  footer a { margin-left: 12px; }
+
+  @media (max-width: 480px) {
+    h2 { font-size: 1.5rem; }
+    .service-title { font-size: 1rem; }
+    .service-icon { font-size: 2.6rem; }
+  }
+</style>
 </head>
 <body>
 
-<header>Services Bots & Scripts</header>
+<header>
+  BotX - Votre bot Discord sur mesure
+  <a href="https://discord.gg/wK6MydsVCZ" target="_blank" rel="noopener" class="btn-discord" style="margin-left: 12px;">
+    <span class="material-icons">discord</span> Rejoindre le Discord
+  </a>
+</header>
 
-<div class="container">
+<main>
+  <h2>Nos Services</h2>
+  <div class="services">
 
-    <div class="service">
-        <h2>1️⃣ Bots sur mesure</h2>
-        <ul>
-            <li>Basique : <span class="price">5€</span> – commandes simples, automatisation légère
-                <a class="btn pay" href="https://www.paypal.me/TONPSEUDO/5" target="_blank">Acheter</a>
-            </li>
-            <li>Standard : <span class="price">15€</span> – commandes avancées, modération, fonctionnalités personnalisées
-                <a class="btn pay" href="https://www.paypal.me/TONPSEUDO/15" target="_blank">Acheter</a>
-            </li>
-            <li>Premium : <span class="price">30€</span> – bot complet avec fonctionnalités avancées, intégrations et support
-                <a class="btn pay" href="https://www.paypal.me/TONPSEUDO/30" target="_blank">Acheter</a>
-            </li>
-        </ul>
+    <div class="service-card" data-price="5.00" data-name="Bots sur mesure - Basique">
+      <div class="service-icon material-icons">smart_toy</div>
+      <div class="service-title">Bots sur mesure - Basique</div>
+      <div class="service-desc">Commandes simples, automatisation légère</div>
+      <div class="price">5€</div>
+      <button class="btn-buy">Acheter</button>
     </div>
 
-    <div class="service">
-        <h2>2️⃣ Scripts de bots</h2>
-        <ul>
-            <li>Simple : <span class="price">3€</span> – script prêt à l’emploi, facile à installer
-                <a class="btn pay" href="https://www.paypal.me/TONPSEUDO/3" target="_blank">Acheter</a>
-            </li>
-            <li>Avancé : <span class="price">10€</span> – script optimisé, plusieurs fonctionnalités configurables
-                <a class="btn pay" href="https://www.paypal.me/TONPSEUDO/10" target="_blank">Acheter</a>
-            </li>
-        </ul>
+    <div class="service-card" data-price="15.00" data-name="Bots sur mesure - Standard">
+      <div class="service-icon material-icons">smart_toy</div>
+      <div class="service-title">Bots sur mesure - Standard</div>
+      <div class="service-desc">Commandes avancées, modération, fonctionnalités personnalisées</div>
+      <div class="price">15€</div>
+      <button class="btn-buy">Acheter</button>
     </div>
 
-    <div class="service">
-        <h2>3️⃣ Hébergement de bots</h2>
-        <ul>
-            <li>Basique : <span class="price">3€/mois</span> – serveur partagé, stable
-                <a class="btn pay" href="https://www.paypal.me/TONPSEUDO/3" target="_blank">Souscrire</a>
-            </li>
-            <li>Standard : <span class="price">7€/mois</span> – performances améliorées, uptime garanti
-                <a class="btn pay" href="https://www.paypal.me/TONPSEUDO/7" target="_blank">Souscrire</a>
-            </li>
-            <li>Premium : <span class="price">12€/mois</span> – serveur dédié ou optimisé, support prioritaire
-                <a class="btn pay" href="https://www.paypal.me/TONPSEUDO/12" target="_blank">Souscrire</a>
-            </li>
-        </ul>
+    <div class="service-card" data-price="30.00" data-name="Bots sur mesure - Premium">
+      <div class="service-icon material-icons">smart_toy</div>
+      <div class="service-title">Bots sur mesure - Premium</div>
+      <div class="service-desc">Bot complet avec fonctionnalités avancées, intégrations et support</div>
+      <div class="price">30€</div>
+      <button class="btn-buy">Acheter</button>
     </div>
 
-    <div class="service" style="text-align:center;">
-        <h2>💬 Rejoignez notre Discord</h2>
-        <a class="btn discord" href="https://discord.gg/dxPUW2vynP" target="_blank">Discord</a>
+    <div class="service-card" data-price="3.00" data-name="Scripts de bots - Simple">
+      <div class="service-icon material-icons">code</div>
+      <div class="service-title">Scripts de bots - Simple</div>
+      <div class="service-desc">Script prêt à l'emploi, facile à installer</div>
+      <div class="price">3€</div>
+      <button class="btn-buy">Acheter</button>
     </div>
 
-</div>
+    <div class="service-card" data-price="10.00" data-name="Scripts de bots - Avancé">
+      <div class="service-icon material-icons">code</div>
+      <div class="service-title">Scripts de bots - Avancé</div>
+      <div class="service-desc">Script optimisé, plusieurs fonctionnalités configurables</div>
+      <div class="price">10€</div>
+      <button class="btn-buy">Acheter</button>
+    </div>
+
+    <div class="service-card" data-price="3.00" data-name="Hébergement - Basique">
+      <div class="service-icon material-icons">storage</div>
+      <div class="service-title">Hébergement - Basique</div>
+      <div class="service-desc">Serveur partagé, stable</div>
+      <div class="price">3€/mois</div>
+      <button class="btn-buy">Acheter</button>
+    </div>
+
+    <div class="service-card" data-price="7.00" data-name="Hébergement - Standard">
+      <div class="service-icon material-icons">storage</div>
+      <div class="service-title">Hébergement - Standard</div>
+      <div class="service-desc">Performances améliorées, uptime garanti</div>
+      <div class="price">7€/mois</div>
+      <button class="btn-buy">Acheter</button>
+    </div>
+
+    <div class="service-card" data-price="12.00" data-name="Hébergement - Premium">
+      <div class="service-icon material-icons">storage</div>
+      <div class="service-title">Hébergement - Premium</div>
+      <div class="service-desc">Serveur dédié ou optimisé, support prioritaire</div>
+      <div class="price">12€/mois</div>
+      <button class="btn-buy">Acheter</button>
+    </div>
+
+  </div>
+</main>
 
 <footer>
-    © 2026 - Tous droits réservés
+  Rejoignez notre Discord
+  <a href="https://discord.gg/wK6MydsVCZ" target="_blank" rel="noopener" class="btn-discord" style="font-size: 1rem; padding: 8px 18px; margin-left: 12px;">
+    <span class="material-icons">discord</span> Rejoindre Discord
+  </a>
 </footer>
+
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=EUR"></script>
+
+<script>
+  function createPaypalButton(container, name, price) {
+    paypal.Buttons({
+      style: { shape: 'rect', color: 'blue', layout: 'vertical', label: 'paypal', height: 36 },
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{ description: name, amount: { value: price } }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(details => {
+          alert(`Merci ${details.payer.name.given_name} pour votre achat de "${name}" !`);
+        });
+      },
+      onError: function(err) {
+        alert('Une erreur est survenue lors du paiement.');
+        console.error(err);
+      }
+    }).render(container);
+  }
+
+  document.querySelectorAll('.service-card').forEach(card => {
+    const btn = card.querySelector('.btn-buy');
+    const name = card.getAttribute('data-name');
+    const price = card.getAttribute('data-price');
+
+    btn.addEventListener('click', () => {
+      let modal = document.createElement('div');
+      modal.style.position = 'fixed';
+      modal.style.top = '0';
+      modal.style.left = '0';
+      modal.style.width = '100vw';
+      modal.style.height = '100vh';
+      modal.style.background = 'rgba(0,0,0,0.75)';
+      modal.style.display = 'flex';
+      modal.style.justifyContent = 'center';
+      modal.style.alignItems = 'center';
+      modal.style.zIndex = '9999';
+
+      let box = document.createElement('div');
+      box.style.background = '#1b1e34';
+      box.style.padding = '24px';
+      box.style.borderRadius = '16px';
+      box.style.boxShadow = '0 0 20px #5865F2cc';
+      box.style.minWidth = '320px';
+      box.style.textAlign = 'center';
+
+      let closeBtn = document.createElement('button');
+      closeBtn.textContent = '✕';
+      closeBtn.style.position = 'absolute';
+      closeBtn.style.top = '12px';
+      closeBtn.style.right = '12px';
+      closeBtn.style.background = 'transparent';
+      closeBtn.style.color = '#fff';
+      closeBtn.style.border = 'none';
+      closeBtn.style.fontSize = '22px';
+      closeBtn.style.cursor = 'pointer';
+      closeBtn.addEventListener('click', () => document.body.removeChild(modal));
+
+      let title = document.createElement('h3');
+      title.textContent = `Acheter : ${name} - ${price} €`;
+      title.style.color = '#8c9eff';
+      title.style.marginBottom = '18px';
+
+      let paypalContainer = document.createElement('div');
+      paypalContainer.id = 'paypal-button-container-temp';
+
+      box.appendChild(closeBtn);
+      box.appendChild(title);
+      box.appendChild(paypalContainer);
+      modal.appendChild(box);
+      document.body.appendChild(modal);
+
+      createPaypalButton(paypalContainer, name, price);
+    });
+  });
+</script>
 
 </body>
 </html>
