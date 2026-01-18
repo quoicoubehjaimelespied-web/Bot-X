@@ -2,43 +2,69 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Vente de Script</title>
+    <title>Services Bots & Scripts</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #1e1e2f, #2b2b4f);
             color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #00d4ff;
+            color: #1e1e2f;
+            padding: 20px 0;
             text-align: center;
-            padding: 50px;
+            font-size: 28px;
+            font-weight: bold;
         }
 
         .container {
-            max-width: 500px;
-            margin: auto;
-            background: #1c1c2e;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
         }
 
-        h1 {
-            color: #00d4ff;
+        h2 {
+            color: #00ff99;
+            margin-top: 40px;
+        }
+
+        .service {
+            background: #1c1c2e;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        }
+
+        .service ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #2b2b4f;
+            border-radius: 8px;
         }
 
         .price {
-            font-size: 28px;
-            margin: 20px 0;
             color: #00ff99;
+            font-weight: bold;
         }
 
         .btn {
-            display: block;
-            margin: 15px 0;
-            padding: 15px;
-            font-size: 18px;
-            text-decoration: none;
+            display: inline-block;
+            margin: 10px 5px 0 0;
+            padding: 10px 20px;
+            font-size: 16px;
             color: white;
-            border-radius: 10px;
+            border-radius: 8px;
+            text-decoration: none;
             transition: 0.3s;
         }
 
@@ -59,34 +85,71 @@
         }
 
         footer {
-            margin-top: 20px;
+            text-align: center;
             font-size: 12px;
+            padding: 20px 0;
             opacity: 0.7;
         }
     </style>
 </head>
 <body>
 
+<header>Services Bots & Scripts</header>
+
 <div class="container">
-    <h1>Script Premium</h1>
-    <p>Script exclusif, rapide et optimisé.</p>
 
-    <div class="price">💰 Prix : 5 €</div>
+    <div class="service">
+        <h2>1️⃣ Bots sur mesure</h2>
+        <ul>
+            <li>Basique : <span class="price">5€</span> – commandes simples, automatisation légère
+                <a class="btn pay" href="https://www.paypal.me/TONPSEUDO/5" target="_blank">Acheter</a>
+            </li>
+            <li>Standard : <span class="price">15€</span> – commandes avancées, modération, fonctionnalités personnalisées
+                <a class="btn pay" href="https://www.paypal.me/TONPSEUDO/15" target="_blank">Acheter</a>
+            </li>
+            <li>Premium : <span class="price">30€</span> – bot complet avec fonctionnalités avancées, intégrations et support
+                <a class="btn pay" href="https://www.paypal.me/TONPSEUDO/30" target="_blank">Acheter</a>
+            </li>
+        </ul>
+    </div>
 
-    <!-- LIEN DE PAIEMENT -->
-    <a class="btn pay" href="https://www.paypal.me/TONPSEUDO/5" target="_blank">
-        Acheter le script
-    </a>
+    <div class="service">
+        <h2>2️⃣ Scripts de bots</h2>
+        <ul>
+            <li>Simple : <span class="price">3€</span> – script prêt à l’emploi, facile à installer
+                <a class="btn pay" href="https://www.paypal.me/TONPSEUDO/3" target="_blank">Acheter</a>
+            </li>
+            <li>Avancé : <span class="price">10€</span> – script optimisé, plusieurs fonctionnalités configurables
+                <a class="btn pay" href="https://www.paypal.me/TONPSEUDO/10" target="_blank">Acheter</a>
+            </li>
+        </ul>
+    </div>
 
-    <!-- LIEN DISCORD -->
-    <a class="btn discord" href="https://discord.gg/dxPUW2vynP" target="_blank">
-        Rejoindre le Discord
-    </a>
+    <div class="service">
+        <h2>3️⃣ Hébergement de bots</h2>
+        <ul>
+            <li>Basique : <span class="price">3€/mois</span> – serveur partagé, stable
+                <a class="btn pay" href="https://www.paypal.me/TONPSEUDO/3" target="_blank">Souscrire</a>
+            </li>
+            <li>Standard : <span class="price">7€/mois</span> – performances améliorées, uptime garanti
+                <a class="btn pay" href="https://www.paypal.me/TONPSEUDO/7" target="_blank">Souscrire</a>
+            </li>
+            <li>Premium : <span class="price">12€/mois</span> – serveur dédié ou optimisé, support prioritaire
+                <a class="btn pay" href="https://www.paypal.me/TONPSEUDO/12" target="_blank">Souscrire</a>
+            </li>
+        </ul>
+    </div>
 
-    <footer>
-        © 2026 - Tous droits réservés
-    </footer>
+    <div class="service" style="text-align:center;">
+        <h2>💬 Rejoignez notre Discord</h2>
+        <a class="btn discord" href="https://discord.gg/dxPUW2vynP" target="_blank">Discord</a>
+    </div>
+
 </div>
+
+<footer>
+    © 2026 - Tous droits réservés
+</footer>
 
 </body>
 </html>
